@@ -3,11 +3,10 @@ import "../hojas-de-estilo/TareaFormulario.css";
 import { v4 as uuidv4 } from "uuid";
 
 function TareaFormulario(props) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState();
 
   const manejarCambio = (e) => {
     setInput(e.target.value);
-    console.log(e.target.value);
   };
 
   const manejarEnvio = (e) => {
@@ -15,9 +14,10 @@ function TareaFormulario(props) {
 
     const tareaNueva = {
       id: uuidv4(),
-      texto: "input",
+      texto: input,
       completada: false,
     };
+    //console.log(tareaNueva);
     props.onSubmit(tareaNueva);
   };
 

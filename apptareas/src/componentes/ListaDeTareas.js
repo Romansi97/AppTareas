@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TareaFormulario from "./TareaFormulario";
-import "../hojas-de-estilo/ListaDeTareas.css";
 import Tarea from "./Tarea";
+import "../hojas-de-estilo/ListaDeTareas.css";
 
 function ListaDeTareas() {
   const [tareas, setTareas] = useState([]);
@@ -14,18 +14,21 @@ function ListaDeTareas() {
     }
   };
 
+  //Si el ID de la tarea es distinto. Si es true, el elemento (tarea) ingresa en el arreglo. Si es false, es omitido
   const eliminarTarea = (id) => {
     const tareasActualizadas = tareas.filter((tarea) => tarea.id !== id);
     setTareas(tareasActualizadas);
   };
 
+  //Tareas.map() -> modifica el valor del arreglo.
   const completarTarea = (id) => {
     const tareasActualizadas = tareas.map((tarea) => {
       if (tarea.id === id) {
-        tarea.completada = !tarea.completada;
+        tarea.completada = !tarea.completada; // Si coincide el id le cambia el valor. SI es true, pasa a false. Al contrario lo mismo
       }
       return tarea;
     });
+    console.log(tareasActualizadas);
     setTareas(tareasActualizadas);
   };
 

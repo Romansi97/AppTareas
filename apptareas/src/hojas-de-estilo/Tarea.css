@@ -17,6 +17,10 @@
 }
 
 .tarea-contenedor:nth-child(3n + 2) {
+  background-color: #2a2a40;
+}
+
+.tarea-contenedor:nth-child(3n + 3) {
   background-color: #3b3b4f;
 }
 
